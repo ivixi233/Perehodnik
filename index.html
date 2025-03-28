@@ -1,98 +1,94 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <title>Сайт с выбором перехода</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+    <title>Выбор платформы</title>
     <style>
         body {
-            font-family: 'Nunito', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            margin: 0;
+            padding: 0;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            margin: 0;
-            background: linear-gradient(135deg, #6e8efb, #a777e3);
-            color: white;
-            padding: 20px;
-            box-sizing: border-box;
+            color: #212529;
+        }
+        
+        .container {
+            text-align: center;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            width: 90%;
+            max-width: 350px;
         }
         
         h1 {
-            font-family: 'Pacifico', cursive;
-            font-size: 2.2rem;
-            margin-bottom: 30px;
+            margin-bottom: 1.8rem;
+            font-size: 1.5rem;
+            color: #343a40;
+            font-weight: 600;
+        }
+        
+        .btn {
+            display: block;
+            padding: 0.8rem 1.5rem;
+            margin: 0.8rem auto;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.25s ease;
+            width: 80%;
+            max-width: 220px;
             text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
         
-        .image-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            width: 100%;
-            max-width: 800px;
+        .btn-telegram {
+            background: #26A5E4;
+            color: white;
+            border: 2px solid #26A5E4;
         }
         
-        .image-card {
-            width: 200px; /* Фиксированная ширина */
-            height: 200px; /* Фиксированная высота */
-            border-radius: 15px;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            border: 3px solid rgba(255,255,255,0.8);
-            transition: transform 0.3s;
+        .btn-telegram:hover {
+            background: white;
+            color: #26A5E4;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(38, 165, 228, 0.15);
         }
         
-        .image-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            transition: transform 0.5s;
+        .btn-yandex {
+            background: #FFDB4D;
+            color: #000;
+            border: 2px solid #FFDB4D;
         }
         
-        .image-card:hover {
-            transform: scale(1.05);
+        .btn-yandex:hover {
+            background: white;
+            color: #000;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(255, 219, 77, 0.15);
         }
         
-        .image-label {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0,0,0,0.7);
-            padding: 10px;
-            text-align: center;
-            font-weight: bold;
-        }
-
-        /* Адаптивность для мобильных */
-        @media (max-width: 600px) {
-            .image-card {
-                width: 150px;
-                height: 150px;
-            }
-            h1 {
-                font-size: 1.8rem;
-            }
+        .icon {
+            margin-right: 10px;
+            vertical-align: middle;
+            font-size: 1.1rem;
         }
     </style>
 </head>
 <body>
-    <h1>Выберите вариант</h1>
-    
-    <div class="image-grid">
-        <a href="https://t.me/kAYcX7cdlQYwYjEy/2">
-            <img src="0000.jpeg" alt=" ">
-            <div class="image-label"> </div>
+    <div class="container">
+        <h1>Выберите платформу</h1>
+        <a href="https://t.me/kAYcX7cdlQYwYjEy/2" class="btn btn-telegram">
+            <span class="icon">✈️</span> Telegram
         </a>
-        
-        <a href="https://disk.yandex.ru/i/Z-PwUgLBKMOj6g">
-            <img src="4555.jpg" alt=" ">
-            <div class="image-label"> </div>
+        <a href="https://disk.yandex.ru/i/Z-PwUgLBKMOj6g" class="btn btn-yandex">
+            <span class="icon">☁️</span> Яндекс.Диск
         </a>
     </div>
 </body>
