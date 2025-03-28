@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Сайт с выбором перехода</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            color: white;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 40px;
+            font-size: 28px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        .links {
+            display: flex;
+            gap: 30px;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s;
+        }
+        .image-container:hover {
+            transform: scale(1.05);
+        }
+        .image-container img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border: 3px solid white;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .image-container p {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Выберите удобный способ перехода</h1>
+    <div class="links">
+        <a href="https://disk.yandex.ru/i/Z-PwUgLBKMOj6g">
+            <div class="image-container">
+                <img src="yandex1.png" alt=" ">
+                <p>Вариант 1</p>
+            </div>
+        </a>
+        <a href="https://t.me/kAYcX7cdlQYwYjEy">
+            <div class="image-container">
+                <img src="telegram.png" alt=" ">
+                <p>Вариант 2</p>
+            </div>
+        </a>
+    </div>
+</body>
+</html>
