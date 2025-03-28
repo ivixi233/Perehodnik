@@ -7,7 +7,6 @@
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             margin: 0;
             padding: 0;
             display: flex;
@@ -16,32 +15,32 @@
             min-height: 100vh;
             color: #212529;
             position: relative;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             overflow: hidden;
         }
-        
-        /* Добавление фона с летящими самолетиками и облаками */
-        .clouds {
+
+        /* Анимации для облаков и самолетиков */
+        .clouds, .planes {
             position: absolute;
-            top: 10%;
-            left: 0;
-            right: 0;
+            width: 100%;
             z-index: -1;
-            animation: moveClouds 20s linear infinite;
-            font-size: 4rem;
-            opacity: 0.7;
+            opacity: 0.6;
+            font-size: 6rem;
         }
-        
+
+        .clouds {
+            top: 10%;
+            left: -100%;
+            animation: moveClouds 30s linear infinite;
+        }
+
         .planes {
-            position: absolute;
-            top: 30%;
-            left: 0;
-            right: 0;
-            z-index: -2;
+            top: 35%;
+            left: -100%;
             animation: movePlanes 15s linear infinite;
-            font-size: 3rem;
-            opacity: 0.7;
+            font-size: 5rem;
         }
-        
+
         @keyframes moveClouds {
             0% {
                 transform: translateX(-100%);
@@ -50,7 +49,7 @@
                 transform: translateX(100%);
             }
         }
-        
+
         @keyframes movePlanes {
             0% {
                 transform: translateX(-100%);
@@ -60,68 +59,107 @@
             }
         }
 
+        /* Контейнер с кнопками */
         .container {
             text-align: center;
             background: white;
-            padding: 2.5rem;
+            padding: 3rem;
             border-radius: 12px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
             width: 90%;
-            max-width: 350px;
+            max-width: 400px;
             z-index: 1;
+            transform: scale(1);
+            transition: transform 0.5s ease;
         }
-        
+
+        .container:hover {
+            transform: scale(1.05);
+        }
+
         h1 {
-            margin-bottom: 1.8rem;
-            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-size: 2rem;
             color: #343a40;
             font-weight: 600;
+            transition: color 0.3s ease;
         }
-        
+
+        h1:hover {
+            color: #26A5E4;
+        }
+
         .btn {
             display: block;
-            padding: 0.8rem 1.5rem;
-            margin: 0.8rem auto;
+            padding: 1rem 2rem;
+            margin: 1rem auto;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 500;
-            transition: all 0.25s ease;
+            transition: all 0.3s ease;
             width: 80%;
-            max-width: 220px;
+            max-width: 250px;
             text-align: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
-        
+
         .btn-telegram {
             background: #26A5E4;
             color: white;
             border: 2px solid #26A5E4;
         }
-        
+
         .btn-telegram:hover {
             background: white;
             color: #26A5E4;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
             box-shadow: 0 6px 12px rgba(38, 165, 228, 0.15);
         }
-        
+
         .btn-yandex {
             background: #FFDB4D;
             color: #000;
             border: 2px solid #FFDB4D;
         }
-        
+
         .btn-yandex:hover {
             background: white;
             color: #000;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
             box-shadow: 0 6px 12px rgba(255, 219, 77, 0.15);
         }
-        
+
+        /* Иконки в кнопках */
         .icon {
             margin-right: 10px;
             vertical-align: middle;
-            font-size: 1.1rem;
+            font-size: 1.5rem;
+        }
+
+        /* Адаптивность для мобильных устройств */
+        @media (max-width: 768px) {
+            .clouds {
+                font-size: 4rem;
+                top: 5%;
+            }
+
+            .planes {
+                font-size: 4rem;
+                top: 20%;
+            }
+
+            .container {
+                padding: 2rem;
+                max-width: 90%;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .btn {
+                width: 90%;
+            }
         }
     </style>
 </head>
