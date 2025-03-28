@@ -15,8 +15,51 @@
             align-items: center;
             min-height: 100vh;
             color: #212529;
+            position: relative;
+            overflow: hidden;
         }
         
+        /* Добавление фона с летящими самолетиками и облаками */
+        .clouds {
+            position: absolute;
+            top: 10%;
+            left: 0;
+            right: 0;
+            z-index: -1;
+            animation: moveClouds 20s linear infinite;
+            font-size: 4rem;
+            opacity: 0.7;
+        }
+        
+        .planes {
+            position: absolute;
+            top: 30%;
+            left: 0;
+            right: 0;
+            z-index: -2;
+            animation: movePlanes 15s linear infinite;
+            font-size: 3rem;
+            opacity: 0.7;
+        }
+        
+        @keyframes moveClouds {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+        
+        @keyframes movePlanes {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
         .container {
             text-align: center;
             background: white;
@@ -25,6 +68,7 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
             width: 90%;
             max-width: 350px;
+            z-index: 1;
         }
         
         h1 {
@@ -82,6 +126,8 @@
     </style>
 </head>
 <body>
+    <div class="clouds">☁️ ☁️ ☁️ ☁️ ☁️ ☁️</div>
+    <div class="planes">✈️ ✈️ ✈️ ✈️ ✈️ ✈️</div>
     <div class="container">
         <h1>Выберите платформу</h1>
         <a href="https://t.me/kAYcX7cdlQYwYjEy/2" class="btn btn-telegram">
