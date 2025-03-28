@@ -5,175 +5,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Выбор платформы</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: url('https://source.unsplash.com/1600x900/?architecture,dark') no-repeat center center/cover;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            color: #212529;
-            position: relative;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            text-align: center;
             overflow: hidden;
         }
 
-        /* Анимации для облаков и самолетиков */
-        .clouds, .planes {
+        .overlay {
             position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            z-index: -1;
-            opacity: 0.6;
-            font-size: 6rem;
-        }
-
-        .clouds {
-            top: 10%;
-            left: -100%;
-            animation: moveClouds 30s linear infinite;
-        }
-
-        .planes {
-            top: 35%;
-            left: -100%;
-            animation: movePlanes 15s linear infinite;
-            font-size: 5rem;
-        }
-
-        @keyframes moveClouds {
-            0% {
-                transform: translateX(-100%);
-            }
-            100% {
-                transform: translateX(100%);
-            }
-        }
-
-        @keyframes movePlanes {
-            0% {
-                transform: translateX(-100%);
-            }
-            100% {
-                transform: translateX(100%);
-            }
-        }
-
-        /* Контейнер с кнопками */
-        .container {
-            text-align: center;
-            background: white;
-            padding: 3rem;
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-            width: 90%;
-            max-width: 400px;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
             z-index: 1;
-            transform: scale(1);
-            transition: transform 0.5s ease;
         }
 
-        .container:hover {
-            transform: scale(1.05);
+        .container {
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1.5s ease-in-out;
         }
 
         h1 {
-            margin-bottom: 2rem;
-            font-size: 2rem;
-            color: #343a40;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        h1:hover {
-            color: #26A5E4;
+            color: #fff;
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .btn {
-            display: block;
-            padding: 1rem 2rem;
-            margin: 1rem auto;
-            border-radius: 8px;
+            display: inline-block;
+            width: 200px;
+            padding: 15px;
+            margin: 10px;
+            font-size: 18px;
+            text-transform: uppercase;
             text-decoration: none;
-            font-weight: 500;
+            color: #fff;
+            border: 2px solid #fff;
             transition: all 0.3s ease;
-            width: 80%;
-            max-width: 250px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
         }
 
-        .btn-telegram {
-            background: #26A5E4;
-            color: white;
-            border: 2px solid #26A5E4;
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            transition: left 0.3s ease;
+            z-index: -1;
         }
 
-        .btn-telegram:hover {
-            background: white;
-            color: #26A5E4;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(38, 165, 228, 0.15);
+        .btn:hover::before {
+            left: 0;
         }
 
-        .btn-yandex {
-            background: #FFDB4D;
+        .btn:hover {
             color: #000;
-            border: 2px solid #FFDB4D;
         }
 
-        .btn-yandex:hover {
-            background: white;
-            color: #000;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(255, 219, 77, 0.15);
-        }
-
-        /* Иконки в кнопках */
-        .icon {
-            margin-right: 10px;
-            vertical-align: middle;
-            font-size: 1.5rem;
-        }
-
-        /* Адаптивность для мобильных устройств */
-        @media (max-width: 768px) {
-            .clouds {
-                font-size: 4rem;
-                top: 5%;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
             }
-
-            .planes {
-                font-size: 4rem;
-                top: 20%;
-            }
-
-            .container {
-                padding: 2rem;
-                max-width: 90%;
-            }
-
-            h1 {
-                font-size: 1.5rem;
-            }
-
-            .btn {
-                width: 90%;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
     </style>
 </head>
 <body>
-    <div class="clouds">☁️ ☁️ ☁️ ☁️ ☁️ ☁️</div>
-    <div class="planes">✈️ ✈️ ✈️ ✈️ ✈️ ✈️</div>
+    <div class="overlay"></div>
     <div class="container">
         <h1>Выберите платформу</h1>
-        <a href="https://t.me/kAYcX7cdlQYwYjEy/2" class="btn btn-telegram">
-            <span class="icon">✈️</span> Telegram
-        </a>
-        <a href="https://disk.yandex.ru/i/Z-PwUgLBKMOj6g" class="btn btn-yandex">
-            <span class="icon">☁️</span> Яндекс.Диск
-        </a>
+        <a href="https://telegram.org" class="btn">Telegram</a>
+        <a href="https://disk.yandex.ru" class="btn">Яндекс.Диск</a>
     </div>
 </body>
 </html>
